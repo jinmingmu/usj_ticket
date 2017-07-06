@@ -14,8 +14,20 @@ chrome.runtime.onMessage.addListener(
 });
 
 function runIt() {
-    console.log('working');
-    document.body.style.backgroundColor="red";
-    localStorage.setItem('myCat', 'Tom1');
+    var buttons = document.getElementsByClassName('pdfDlButton') 
+    var pdf_buttons = []
+    for(i = 0; i < buttons.length; i++) { 
+        if(buttons[i].hasAttribute('locurl')){
+            pdf_buttons = pdf_buttons.concat(buttons[i])
+        }
+    }
+
+    pdf_buttons.forEach(function(element) {
+        var url = element.getAttribute('locurl')
+        if(!localStorage.getItem(url)){
+            window.open(url)
+            localStorage.setItem(url, '1');
+        }
+    });
 }
 runIt();

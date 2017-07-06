@@ -10,7 +10,7 @@
     "permissions": [
         "tabs",
         "activeTab",
-        "https://www.klook.com/*",
+        "http://www.usj-hp.jp/*",
         "storage"
     ]
 }
